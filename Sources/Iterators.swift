@@ -25,7 +25,7 @@ public struct Iterator {
 }
 
 public extension RecurrenceRule {
-    public func allOccurrences(endless endlessRecurrenceCount: Int = Iterator.endlessRecurrenceCount) -> [Date] {
+    func allOccurrences(endless endlessRecurrenceCount: Int = Iterator.endlessRecurrenceCount) -> [Date] {
         guard let _ = JavaScriptBridge.rrulejs() else {
             return []
         }
@@ -48,7 +48,7 @@ public extension RecurrenceRule {
         if let exdates = exdate?.dates, let component = exdate?.component {
             for occurrence in occurrences {
                 for exdate in exdates {
-                    if calendar.isDate(occurrence, equalTo: exdate, toGranularity: component), let index = occurrences.index(of: occurrence) {
+                    if calendar.isDate(occurrence, equalTo: exdate, toGranularity: component), let index = occurrences.firstIndex(of: occurrence) {
                         occurrences.remove(at: index)
                         break
                     }
@@ -59,7 +59,7 @@ public extension RecurrenceRule {
         return occurrences.sorted { $0.isBeforeOrSame(with: $1) }
     }
 
-    public func occurrences(between date: Date, and otherDate: Date, endless endlessRecurrenceCount: Int = Iterator.endlessRecurrenceCount) -> [Date] {
+    func occurrences(between date: Date, and otherDate: Date, endless endlessRecurrenceCount: Int = Iterator.endlessRecurrenceCount) -> [Date] {
         guard let _ = JavaScriptBridge.rrulejs() else {
             return []
         }
@@ -87,7 +87,7 @@ public extension RecurrenceRule {
         if let exdates = exdate?.dates, let component = exdate?.component {
             for occurrence in occurrences {
                 for exdate in exdates {
-                    if calendar.isDate(occurrence, equalTo: exdate, toGranularity: component), let index = occurrences.index(of: occurrence) {
+                    if calendar.isDate(occurrence, equalTo: exdate, toGranularity: component), let index = occurrences.firstIndex(of: occurrence) {
                         occurrences.remove(at: index)
                         break
                     }
