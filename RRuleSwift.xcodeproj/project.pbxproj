@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6BB27A32233AC824001B3001 /* RecurrenceRuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB27A31233AC824001B3001 /* RecurrenceRuleTests.swift */; };
+		6BB27A34233AC824001B3001 /* RRuleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31B13971CA8E02E00D0B863 /* RRuleSwift.framework */; };
 		6BD694AB20D9C6F40008B4C6 /* DateFormatter+RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD694AA20D9C6F40008B4C6 /* DateFormatter+RRule.swift */; };
 		EB48D1611D641D45001EE872 /* EKWeekday+RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1511D641D45001EE872 /* EKWeekday+RRule.swift */; };
 		EB48D1621D641D45001EE872 /* EKWeekday+RRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB48D1511D641D45001EE872 /* EKWeekday+RRule.swift */; };
@@ -30,7 +32,20 @@
 		EB48D17C1D641D45001EE872 /* RRuleSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = EB48D1601D641D45001EE872 /* RRuleSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		6BB27A35233AC824001B3001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D31B138E1CA8E02E00D0B863 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D31B13961CA8E02E00D0B863;
+			remoteInfo = "RRuleSwift-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		6BB27A2F233AC824001B3001 /* RRuleSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RRuleSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BB27A31233AC824001B3001 /* RecurrenceRuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrenceRuleTests.swift; sourceTree = "<group>"; };
+		6BB27A33233AC824001B3001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BD694AA20D9C6F40008B4C6 /* DateFormatter+RRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+RRule.swift"; sourceTree = "<group>"; };
 		D31B13971CA8E02E00D0B863 /* RRuleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RRuleSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB48D1371D641AD6001EE872 /* RRuleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RRuleSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +66,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6BB27A2C233AC824001B3001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BB27A34233AC824001B3001 /* RRuleSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D31B13931CA8E02E00D0B863 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -68,10 +91,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6BB27A30233AC824001B3001 /* RRuleSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				6BB27A31233AC824001B3001 /* RecurrenceRuleTests.swift */,
+				6BB27A33233AC824001B3001 /* Info.plist */,
+			);
+			path = RRuleSwiftTests;
+			sourceTree = "<group>";
+		};
 		D31B138D1CA8E02E00D0B863 = {
 			isa = PBXGroup;
 			children = (
 				EB48D1311D641ABB001EE872 /* Sources */,
+				6BB27A30233AC824001B3001 /* RRuleSwiftTests */,
 				D31B13981CA8E02E00D0B863 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,6 +114,7 @@
 			children = (
 				D31B13971CA8E02E00D0B863 /* RRuleSwift.framework */,
 				EB48D1371D641AD6001EE872 /* RRuleSwift.framework */,
+				6BB27A2F233AC824001B3001 /* RRuleSwiftTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,6 +179,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		6BB27A2E233AC824001B3001 /* RRuleSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6BB27A39233AC824001B3001 /* Build configuration list for PBXNativeTarget "RRuleSwiftTests" */;
+			buildPhases = (
+				6BB27A2B233AC824001B3001 /* Sources */,
+				6BB27A2C233AC824001B3001 /* Frameworks */,
+				6BB27A2D233AC824001B3001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6BB27A36233AC824001B3001 /* PBXTargetDependency */,
+			);
+			name = RRuleSwiftTests;
+			productName = RRuleSwiftTests;
+			productReference = 6BB27A2F233AC824001B3001 /* RRuleSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D31B13961CA8E02E00D0B863 /* RRuleSwift-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D31B139F1CA8E02E00D0B863 /* Build configuration list for PBXNativeTarget "RRuleSwift-iOS" */;
@@ -187,9 +239,15 @@
 		D31B138E1CA8E02E00D0B863 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Teambition;
 				TargetAttributes = {
+					6BB27A2E233AC824001B3001 = {
+						CreatedOnToolsVersion = 10.2.1;
+						DevelopmentTeam = DDLHCN6PR8;
+						ProvisioningStyle = Automatic;
+					};
 					D31B13961CA8E02E00D0B863 = {
 						CreatedOnToolsVersion = 7.3;
 						LastSwiftMigration = 0900;
@@ -205,6 +263,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = D31B138D1CA8E02E00D0B863;
@@ -214,11 +273,19 @@
 			targets = (
 				D31B13961CA8E02E00D0B863 /* RRuleSwift-iOS */,
 				EB48D1361D641AD6001EE872 /* RRuleSwift-watchOS */,
+				6BB27A2E233AC824001B3001 /* RRuleSwiftTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6BB27A2D233AC824001B3001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D31B13951CA8E02E00D0B863 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -238,6 +305,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6BB27A2B233AC824001B3001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BB27A32233AC824001B3001 /* RecurrenceRuleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D31B13921CA8E02E00D0B863 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -271,7 +346,63 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		6BB27A36233AC824001B3001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D31B13961CA8E02E00D0B863 /* RRuleSwift-iOS */;
+			targetProxy = 6BB27A35233AC824001B3001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		6BB27A37233AC824001B3001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DDLHCN6PR8;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = RRuleSwiftTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mangohealth.RRuleSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6BB27A38233AC824001B3001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DDLHCN6PR8;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = RRuleSwiftTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mangohealth.RRuleSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		D31B139D1CA8E02E00D0B863 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -479,6 +610,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6BB27A39233AC824001B3001 /* Build configuration list for PBXNativeTarget "RRuleSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BB27A37233AC824001B3001 /* Debug */,
+				6BB27A38233AC824001B3001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D31B13911CA8E02E00D0B863 /* Build configuration list for PBXProject "RRuleSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
