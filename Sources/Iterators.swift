@@ -60,41 +60,47 @@ public extension RecurrenceRule {
     }
 
     public func occurrences(between date: Date, and otherDate: Date, endless endlessRecurrenceCount: Int = Iterator.endlessRecurrenceCount) -> [Date] {
-        guard let _ = JavaScriptBridge.rrulejs() else {
-            return []
-        }
-
-        let beginDate = date.isBeforeOrSame(with: otherDate) ? date : otherDate
-        let untilDate = otherDate.isAfterOrSame(with: date) ? otherDate : date
-        let beginDateJSON = RRule.ISO8601DateFormatter.string(from: beginDate)
-        let untilDateJSON = RRule.ISO8601DateFormatter.string(from: untilDate)
-
-        let ruleJSONString = toJSONString(endless: endlessRecurrenceCount)
+		var occurrencesBetween: [Date] = []
 		
-		guard let _ = Iterator.rruleContext?.evaluateScript("var rule = new RRule({ \(ruleJSONString) })") else {
-			return []
+		DispatchQueue.global(qos: .userInitiated).sync {
+			guard let _ = JavaScriptBridge.rrulejs() else {
+				return
+			}
+			
+			let beginDate = date.isBeforeOrSame(with: otherDate) ? date : otherDate
+			let untilDate = otherDate.isAfterOrSame(with: date) ? otherDate : date
+			let beginDateJSON = RRule.ISO8601DateFormatter.string(from: beginDate)
+			let untilDateJSON = RRule.ISO8601DateFormatter.string(from: untilDate)
+			
+			let ruleJSONString = toJSONString(endless: endlessRecurrenceCount)
+			
+			guard let _ = Iterator.rruleContext?.evaluateScript("var rule = new RRule({ \(ruleJSONString) })") else {
+				return
+			}
+			
+			guard let betweenOccurrences = Iterator.rruleContext?.evaluateScript("rule.between(new Date('\(beginDateJSON)'), new Date('\(untilDateJSON)'))")?.toArray() as? [Date] else {
+				return
+			}
+			
+			var occurrences = betweenOccurrences
+			if let rdates = rdate?.dates {
+				occurrences.append(contentsOf: rdates)
+			}
+			
+			if let exdates = exdate?.dates, let component = exdate?.component {
+				for occurrence in occurrences {
+					for exdate in exdates {
+						if calendar.isDate(occurrence, equalTo: exdate, toGranularity: component), let index = occurrences.index(of: occurrence) {
+							occurrences.remove(at: index)
+							break
+						}
+					}
+				}
+			}
+			
+			occurrencesBetween = occurrences.sorted { $0.isBeforeOrSame(with: $1) }
 		}
-		
-        guard let betweenOccurrences = Iterator.rruleContext?.evaluateScript("rule.between(new Date('\(beginDateJSON)'), new Date('\(untilDateJSON)'))")?.toArray() as? [Date] else {
-            return []
-        }
 
-        var occurrences = betweenOccurrences
-        if let rdates = rdate?.dates {
-            occurrences.append(contentsOf: rdates)
-        }
-
-        if let exdates = exdate?.dates, let component = exdate?.component {
-            for occurrence in occurrences {
-                for exdate in exdates {
-                    if calendar.isDate(occurrence, equalTo: exdate, toGranularity: component), let index = occurrences.index(of: occurrence) {
-                        occurrences.remove(at: index)
-                        break
-                    }
-                }
-            }
-        }
-
-        return occurrences.sorted { $0.isBeforeOrSame(with: $1) }
+        return occurrencesBetween
     }
 }
